@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+licenses(["notice"])
+
 package(default_testonly = True)
 
-load("//closure/private:file_test.bzl", "file_test")
-load("//closure:defs.bzl", "closure_js_binary")
-load("//closure:defs.bzl", "closure_js_deps")
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_deps")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 # This package tests the behavior of closure_js_deps. This package also tests
 # the behavior runfiles with regard to closure_js_library, closure_js_binary,
@@ -60,7 +62,7 @@ file_test(
 closure_js_library(
     name = "goblin",
     srcs = ["goblin.js"],
-    deps = ["//closure/library"],
+    deps = ["//third_party/rules_closure/closure/library"],
 )
 
 closure_js_deps(

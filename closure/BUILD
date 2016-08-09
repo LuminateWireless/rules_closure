@@ -12,7 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("//closure/private:lines_sorted_test.bzl", "lines_sorted_test")
+licenses(["notice"])
+
+load("//third_party/rules_closure/closure/private:lines_sorted_test.bzl",
+     "lines_sorted_test")
 
 lines_sorted_test(
     name = "repositories_defs_sorted_test",

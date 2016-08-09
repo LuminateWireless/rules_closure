@@ -14,11 +14,11 @@
 
 package(default_testonly = True)
 
-load("//closure:defs.bzl", "closure_js_library")
-load("//closure:defs.bzl", "closure_js_template_library")
-load("//closure:defs.bzl", "closure_js_test")
-load("//closure:defs.bzl", "closure_java_template_library")
-load("//closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_template_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_java_template_library")
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
 
 closure_js_template_library(
     name = "greeter_soy",
@@ -36,7 +36,7 @@ closure_js_library(
     srcs = ["greeter.js"],
     deps = [
         ":greeter_soy",
-        "//closure/library",
+        "//third_party/rules_closure/closure/library",
     ],
 )
 
@@ -46,8 +46,8 @@ closure_js_library(
     language = "ECMASCRIPT6_STRICT",
     deps = [
         ":greeter_idom_soy",
-        "//closure/library",
-        "//closure/templates:incremental_dom",
+        "//third_party/rules_closure/closure/library",
+        "//third_party/rules_closure/closure/templates:incremental_dom",
     ],
 )
 
@@ -57,8 +57,8 @@ closure_js_test(
     pedantic = True,
     deps = [
         ":greeter_lib",
-        "//closure/library",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )
 
@@ -68,8 +68,8 @@ closure_js_test(
     language = "ECMASCRIPT6_STRICT",
     deps = [
         ":greeter_idom_lib",
-        "//closure/library",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )
 

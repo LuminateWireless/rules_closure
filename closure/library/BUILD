@@ -14,12 +14,14 @@
 
 package(default_visibility = ["//visibility:public"])
 
-load("//closure:defs.bzl", "closure_js_library")
-load("//closure:defs.bzl", "closure_css_library")
+licenses(["notice"])
+
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_css_library")
 
 closure_js_library(
     name = "library",
-    srcs = ["@closure_library//:js_library_files"],
+    srcs = ["//third_party/js/closure_library:js_library_files"],
     language = "ECMASCRIPT5_STRICT",
     suppress = [
         "JSC_DUPLICATE_ENUM_VALUE",
@@ -37,7 +39,7 @@ closure_js_library(
 closure_js_library(
     name = "testing",
     testonly = True,
-    srcs = ["@closure_library//:js_testing_files"],
+    srcs = ["//third_party/js/closure_library:js_testing_files"],
     language = "ECMASCRIPT5_STRICT",
     suppress = [
         "JSC_EXTRA_REQUIRE_WARNING",
@@ -53,5 +55,5 @@ closure_js_library(
 
 closure_css_library(
     name = "css",
-    srcs = ["@closure_library//:css_files"],
+    srcs = ["//third_party/js/closure_library:css_files"],
 )

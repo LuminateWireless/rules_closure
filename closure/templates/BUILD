@@ -14,7 +14,7 @@
 
 package(default_visibility = ["//visibility:public"])
 
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 java_library(
     name = "templates",
@@ -54,7 +54,7 @@ closure_js_library(
     suppress = [
         "JSC_OPTIONAL_PARAM_NOT_MARKED_OPTIONAL",
     ],
-    deps = ["//closure/library"],
+    deps = ["//third_party/rules_closure/closure/library"],
 )
 
 java_binary(

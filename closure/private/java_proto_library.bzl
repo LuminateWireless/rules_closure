@@ -39,7 +39,7 @@ _gensrcjar = rule(
             allow_files = FileType([".proto"]),
             single_file = True),
         "_gensrcjar": attr.label(
-            default = Label(str(Label("//closure/private:gensrcjar"))),
+            default = Label(str(Label("//third_party/rules_closure/closure/private:gensrcjar"))),
             executable = True),
         "_proto_compiler": attr.label(
             default = Label("//third_party/protobuf:protoc"),

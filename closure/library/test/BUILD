@@ -14,7 +14,7 @@
 
 package(default_testonly = True)
 
-load("//closure:defs.bzl", "closure_js_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_test")
 
 closure_js_test(
     name = "dom_test",
@@ -22,7 +22,7 @@ closure_js_test(
     language = "ECMASCRIPT5_STRICT",
     pedantic = True,
     deps = [
-        "//closure/library",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )

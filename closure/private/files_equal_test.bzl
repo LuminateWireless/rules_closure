@@ -16,7 +16,7 @@
 
 """Tests that two files contain the same data."""
 
-load("//closure/private:defs.bzl", "runpath")
+load("//third_party/rules_closure/closure/private:defs.bzl", "runpath")
 
 def _impl(ctx):
   if ctx.file.golden == ctx.file.actual:

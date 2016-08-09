@@ -11,12 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+licenses(["notice"])
 package(default_testonly = True)
 
-load("//closure/private:file_test.bzl", "file_test")
-load("//closure:defs.bzl", "closure_js_binary")
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 ################################################################################
 # Assume we want to write a JavaScript program (not a library) that we compile
@@ -109,11 +109,11 @@ file_test(
 closure_js_binary(
     name = "program_strict_bin",
     dependency_mode = "STRICT",
-    entry_points = ["closure/compiler/test/empty"],
+    entry_points = ["third_party/rules_closure/closure/compiler/test/empty"],
     pedantic = True,
     deps = [
         ":program_lib",
-        "//closure/compiler/test:empty_lib",
+        "//third_party/rules_closure/closure/compiler/test:empty_lib",
     ],
 )
 
@@ -126,11 +126,11 @@ file_test(
 closure_js_binary(
     name = "program_strict_bin2",
     dependency_mode = "STRICT",
-    entry_points = ["closure/compiler/test/exports_and_entry_points/program"],
+    entry_points = ["third_party/rules_closure/closure/compiler/test/exports_and_entry_points/program"],
     pedantic = True,
     deps = [
         ":program_lib",
-        "//closure/compiler/test:empty_lib",
+        "//third_party/rules_closure/closure/compiler/test:empty_lib",
     ],
 )
 

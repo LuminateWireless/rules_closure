@@ -16,7 +16,7 @@
 
 """Rule for building JavaScript binaries with Closure Compiler."""
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "CLOSURE_LIBRARY_BASE_ATTR",
      "CLOSURE_LIBRARY_DEPS_ATTR",
      "JS_DEPS_ATTR",
@@ -95,7 +95,7 @@ def _impl(ctx):
   if ctx.attr.pedantic:
     args += JS_PEDANTIC_ARGS
     args += ["--use_types_for_optimization"]
-  if contains_file(srcs, "external/closure_library/closure/goog/json/json.js"):
+  if contains_file(srcs, "third_party/js/closure_library/closure/goog/json/json.js"):
     # TODO(hochhaus): Make unknownDefines an error for user supplied defines.
     # https://github.com/bazelbuild/rules_closure/issues/79
     args += ["--jscomp_off=unknownDefines",
@@ -221,12 +221,12 @@ closure_js_binary = rule(
         "internal_expect_failure": attr.bool(default=False),
         "internal_expect_warnings": attr.bool(default=False),
         "_jscompiler": attr.label(
-            default=Label("//java/com/google/javascript/jscomp:jscompiler"),
+            default=Label("//third_party/rules_closure/java/com/google/javascript/jscomp:jscompiler"),
             executable=True),
         "_closure_library_base": CLOSURE_LIBRARY_BASE_ATTR,
         "_closure_library_deps": CLOSURE_LIBRARY_DEPS_ATTR,
         "_soyutils_usegoog": attr.label(
-            default=Label("@soyutils_usegoog//file"),
+            default=Label("//third_party/js/soyutils_usegoog"),
             single_file=True),
     },
     outputs={

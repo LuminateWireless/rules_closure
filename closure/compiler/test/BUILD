@@ -14,10 +14,12 @@
 
 package(default_testonly = True)
 
-load("//closure/private:file_test.bzl", "file_test")
-load("//closure/private:rule_test.bzl", "rule_test")
-load("//closure:defs.bzl", "closure_js_binary")
-load("//closure:defs.bzl", "closure_js_library")
+licenses(["notice"])
+
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure/private:rule_test.bzl", "rule_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 closure_js_library(
     name = "hello_lib",
@@ -207,7 +209,7 @@ closure_js_library(
 
 closure_js_library(
     name = "empty_lib",  # this is an alias rule
-    visibility = ["//closure/compiler/test/exports_and_entry_points:__pkg__"],
+    visibility = ["//third_party/rules_closure/closure/compiler/test/exports_and_entry_points:__pkg__"],
     exports = [":empty_lib_indirectly_hidden"],
 )
 

@@ -1,9 +1,11 @@
+licenses(["notice"])
+
 package(
     default_testonly = True,
     default_visibility = ["//visibility:public"],
 )
 
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 exports_files(["empty.html"])
 
@@ -17,5 +19,5 @@ closure_js_library(
     name = "phantomjs_harness",
     srcs = ["phantomjs_harness.js"],
     no_closure_library = True,
-    deps = ["//closure/testing/externs:phantomjs"],
+    deps = ["//third_party/rules_closure/closure/testing/externs:phantomjs"],
 )

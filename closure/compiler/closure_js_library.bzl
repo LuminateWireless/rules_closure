@@ -16,7 +16,7 @@
 
 """Build definitions for Closure JavaScript libraries."""
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "CLOSURE_LIBRARY_BASE_ATTR",
      "CLOSURE_LIBRARY_DEPS_ATTR",
      "JS_LANGUAGE_DEFAULT",
@@ -118,7 +118,7 @@ closure_js_library = rule(
         "internal_expect_failure": attr.bool(default=False),
         "internal_expect_warnings": attr.bool(default=False),
         "_jschecker": attr.label(
-            default=Label("//java/com/google/javascript/jscomp:jschecker"),
+            default=Label("//third_party/rules_closure/java/com/google/javascript/jscomp:jschecker"),
             executable=True),
         "_closure_library_base": CLOSURE_LIBRARY_BASE_ATTR,
         "_closure_library_deps": CLOSURE_LIBRARY_DEPS_ATTR,

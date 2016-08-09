@@ -16,7 +16,7 @@
 
 """Build definitions for JavaScript dependency files."""
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "CLOSURE_LIBRARY_BASE_ATTR",
      "CLOSURE_LIBRARY_DEPS_ATTR",
      "collect_transitive_js_srcs",
@@ -81,7 +81,7 @@ closure_js_deps = rule(
         "_closure_library_base": CLOSURE_LIBRARY_BASE_ATTR,
         "_closure_library_deps": CLOSURE_LIBRARY_DEPS_ATTR,
         "_depswriter": attr.label(
-            default=Label("@closure_library//:depswriter"),
+            default=Label("//third_party/js/closure_library:depswriter"),
             executable=True),
     },
     outputs={"out": "%{name}.js"})

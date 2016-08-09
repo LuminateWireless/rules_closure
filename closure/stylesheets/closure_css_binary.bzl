@@ -17,7 +17,7 @@
 """Build definitions for CSS compiled by the Closure Stylesheets.
 """
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "CSS_DEPS_ATTR",
      "collect_transitive_css_labels")
 
@@ -95,7 +95,7 @@ closure_css_binary = rule(
         "vendor": attr.string(),
         "data": attr.label_list(cfg=DATA_CFG, allow_files=True),
         "_compiler": attr.label(
-            default=Label("//closure/stylesheets"),
+            default=Label("//third_party/rules_closure/closure/stylesheets"),
             executable=True),
     },
     outputs={"out": "%{name}.css",

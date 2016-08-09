@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("//closure/private:files_equal_test.bzl", "files_equal_test")
+load("//third_party/rules_closure/closure/private:files_equal_test.bzl", "files_equal_test")
 
 def lines_sorted_test(name, file, cmd="cat $< >$@", visibility=None, **kwargs):
   """Tests that lines within a file are sorted."""

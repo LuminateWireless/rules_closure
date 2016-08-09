@@ -51,7 +51,7 @@ def closure_java_template_library(
     extra_srcs = [],
     extra_outs = [],
     allow_external_calls = 1,
-    soycompilerbin = str(Label('//closure/templates:SoyParseInfoGenerator')),
+    soycompilerbin = str(Label('//third_party/rules_closure/closure/templates:SoyParseInfoGenerator')),
     **kwargs):
 
   # Strip off the .soy suffix from the file name and camel-case it, preserving
@@ -78,7 +78,7 @@ def closure_java_template_library(
   native.java_library(
       name = name,
       srcs = java_srcs or None,
-      exports = [str(Label('//closure/templates'))],
+      exports = [str(Label('//third_party/rules_closure/closure/templates'))],
       deps = [
           '@guava//jar',
           str(Label('//closure/templates')),
@@ -105,7 +105,7 @@ def closure_java_template_library(
 # - soycompilerbin Optional Soy to ParseInfo compiler target.
 def _gen_soy_java_wrappers(name, java_package, srcs, deps, outs,
     allow_external_calls = 1,
-    soycompilerbin = str(Label('//closure/templates:SoyParseInfoGenerator')),
+    soycompilerbin = str(Label('//third_party/rules_closure/closure/templates:SoyParseInfoGenerator')),
     **kwargs):
   additional_flags = ''
   srcs_flag_file_name = name + '__srcs'

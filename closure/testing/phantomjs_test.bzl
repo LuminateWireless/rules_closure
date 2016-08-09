@@ -19,7 +19,7 @@
 # XXX: Loading a nontrivial number of external resources into PhantomJS will
 #      cause it to freeze: https://github.com/ariya/phantomjs/issues/14028
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "HTML_FILE_TYPE",
      "JS_DEPS_ATTR",
      "JS_DEPS_PROVIDERS",
@@ -80,17 +80,17 @@ phantomjs_test = rule(
         "html": attr.label(
             single_file=True,
             allow_files=HTML_FILE_TYPE,
-            default=Label("//closure/testing:empty.html")),
+            default=Label("//third_party/rules_closure/closure/testing:empty.html")),
         "harness": attr.label(
             allow_files=False,
             providers=JS_DEPS_PROVIDERS,
-            default=Label("//closure/testing:phantomjs_harness")),
+            default=Label("//third_party/rules_closure/closure/testing:phantomjs_harness")),
         "runner": attr.label(
             allow_files=False,
             providers=JS_DEPS_PROVIDERS,
-            default=Label("//closure/testing:phantomjs_jsunit_runner")),
+            default=Label("//third_party/rules_closure/closure/testing:phantomjs_jsunit_runner")),
         "data": attr.label_list(cfg=DATA_CFG, allow_files=True),
         "_phantomjs": attr.label(
-            default=Label("//third_party/phantomjs"),
+            default=Label("//third_party/js/phantomjs"),
             allow_files=True),
     })

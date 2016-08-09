@@ -42,10 +42,10 @@ JS_PEDANTIC_ARGS = [
 ]
 
 JS_HIDE_WARNING_ARGS = [
-    "--hide_warnings_for=external/closure_library/",
+    "--hide_warnings_for=third_party/js/closure_library/",
     "--hide_warnings_for=external/incremental_dom/",
     "--hide_warnings_for=external/protobuf_js/",
-    "--hide_warnings_for=external/soyutils_usegoog/",
+    "--hide_warnings_for=third_party/js/soyutils_usegoog/",
     "--hide_warnings_for=bazel-out/local-fastbuild/genfiles/",
 ]
 
@@ -67,12 +67,12 @@ CSS_DEPS_ATTR = attr.label_list(
                "transitive_css_labels"])
 
 CLOSURE_LIBRARY_BASE_ATTR = attr.label(
-    default=Label("@closure_library//:closure/goog/base.js"),
+    default=Label("//third_party/js/closure_library:closure/goog/base.js"),
     allow_files=True,
     single_file=True)
 
 CLOSURE_LIBRARY_DEPS_ATTR = attr.label(
-    default=Label("@closure_library//:closure/goog/deps.js"),
+    default=Label("//third_party/js/closure_library:closure/goog/deps.js"),
     allow_files=True,
     single_file=True)
 

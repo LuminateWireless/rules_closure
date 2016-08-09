@@ -16,10 +16,10 @@
 
 """Build macro for running JavaScript unit tests in PhantomJS."""
 
-load("//closure/compiler:closure_js_binary.bzl", "closure_js_binary")
-load("//closure/compiler:closure_js_library.bzl", "closure_js_library")
-load("//closure/private:defs.bzl", "JS_LANGUAGE_DEFAULT")
-load("//closure/testing:phantomjs_test.bzl", "phantomjs_test")
+load("//third_party/rules_closure/closure/compiler:closure_js_binary.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure/compiler:closure_js_library.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/private:defs.bzl", "JS_LANGUAGE_DEFAULT")
+load("//third_party/rules_closure/closure/testing:phantomjs_test.bzl", "phantomjs_test")
 
 def closure_js_test(name,
                     srcs,

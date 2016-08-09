@@ -17,7 +17,7 @@
 """Utilities for compiling Closure Templates to JavaScript.
 """
 
-load("//closure/compiler:closure_js_library.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/compiler:closure_js_library.bzl", "closure_js_library")
 
 def closure_js_template_library(
     name,
@@ -33,8 +33,8 @@ def closure_js_template_library(
     should_generate_soy_msg_defs = 0,
     soy_msgs_are_external = 0,
     incremental_dom = 0,
-    soycompilerbin = str(Label("//closure/templates:SoyToJsSrcCompiler")),
-    soyidomcompilerbin = str(Label("//closure/templates:SoyToIncrementalDomSrcCompiler"))):
+    soycompilerbin = str(Label("//third_party/rules_closure/closure/templates:SoyToJsSrcCompiler")),
+    soyidomcompilerbin = str(Label("//third_party/rules_closure/closure/templates:SoyToIncrementalDomSrcCompiler"))):
   if incremental_dom:
     compilerbin = soyidomcompilerbin
     if not should_generate_js_doc:
@@ -78,10 +78,10 @@ def closure_js_template_library(
       cmd = " ".join(cmd),
   )
 
-  deps = deps + [str(Label("//closure/library")),
-                 str(Label("//closure/templates:soyutils_usegoog"))]
+  deps = deps + [str(Label("//third_party/rules_closure/closure/library")),
+                 str(Label("//third_party/rules_closure/closure/templates:soyutils_usegoog"))]
   if incremental_dom:
-    deps = deps + [str(Label("//closure/templates:incremental_dom"))]
+    deps = deps + [str(Label("//third_party/rules_closure/closure/templates:incremental_dom"))]
 
   closure_js_library(
       name = name,

@@ -11,11 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+licenses(["notice"])
 
-load("//closure/private:file_test.bzl", "file_test")
-load("//closure/private:rule_test.bzl", "rule_test")
-load("//closure:defs.bzl", "closure_js_binary")
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure/private:rule_test.bzl", "rule_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 ################################################################################
 # Assume we're using traditional Google namespaces.

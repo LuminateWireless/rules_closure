@@ -16,7 +16,7 @@
 
 """Build definitions for Closure Stylesheet libraries."""
 
-load("//closure/private:defs.bzl",
+load("//third_party/rules_closure/closure/private:defs.bzl",
      "CSS_DEPS_ATTR",
      "CSS_FILE_TYPE",
      "collect_transitive_css_labels")

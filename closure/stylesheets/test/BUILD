@@ -14,11 +14,11 @@
 
 package(default_testonly = True)
 
-load("//closure/private:file_test.bzl", "file_test")
-load("//closure:defs.bzl", "closure_css_binary")
-load("//closure:defs.bzl", "closure_css_library")
-load("//closure:defs.bzl", "closure_js_binary")
-load("//closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure/private:file_test.bzl", "file_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_css_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_css_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_binary")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
 
 closure_css_library(
     name = "hello_lib",

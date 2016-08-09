@@ -16,7 +16,7 @@
 
 """External dependencies for Closure Rules."""
 
-load("//closure/private:platform_http_file.bzl", "platform_http_file")
+load("//third_party/rules_closure/closure/private:platform_http_file.bzl", "platform_http_file")
 
 def closure_repositories(
     omit_aopalliance=False,

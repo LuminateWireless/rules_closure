@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("//closure/private:java_proto_library.bzl", "java_proto_library")
+licenses(["notice"])
+load('/tools/build_rules/proto_library', 'proto_library')
 
 java_binary(
     name = "jschecker",
@@ -30,11 +31,11 @@ java_binary(
     visibility = ["//visibility:public"],
     deps = [
         ":common",
-        ":worker_protocol_proto",
-        "//third_party/java/jscomp",
-        "@args4j//jar",
-        "@guava//jar",
-        "@protobuf_java//jar",
+        ":worker_protocol_proto_java",
+        "//third_party/js/closure-compiler:jscomp",
+        "//third_party/java/args4j",
+        "//third_party/java/guava",
+        "//external:protobuf_java_lib",
     ],
 )
 
@@ -45,19 +46,24 @@ java_binary(
     visibility = ["//visibility:public"],
     deps = [
         ":common",
-        "//third_party/java/jscomp",
-        "@args4j//jar",
-        "@guava//jar",
+        "//third_party/js/closure-compiler:jscomp",
+        "//third_party/java/args4j",
+        "//third_party/java/guava",
     ],
 )
 
 java_library(
     name = "common",
     srcs = ["JsCheckerErrorManager.java"],
-    deps = ["//third_party/java/jscomp"],
+    deps = [
+      "//third_party/js/closure-compiler:jscomp",
+    ],
 )
 
-java_proto_library(
-    name = "worker_protocol_proto",
-    src = "worker_protocol.proto",
+proto_library(
+  name = "worker_protocol_proto",
+  src = "worker_protocol.proto",
+  generate_cc = False,
+  generate_cc_alwayslink = False,
+  generate_java = True,
 )

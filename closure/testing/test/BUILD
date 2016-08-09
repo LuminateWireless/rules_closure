@@ -11,12 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+licenses(["notice"])
 package(default_testonly = True)
 
-load("//closure:defs.bzl", "closure_js_library")
-load("//closure:defs.bzl", "closure_js_test")
-load("//closure:defs.bzl", "files_equal_test")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_library")
+load("//third_party/rules_closure/closure:defs.bzl", "closure_js_test")
+load("//third_party/rules_closure/closure:defs.bzl", "files_equal_test")
 
 closure_js_library(
     name = "arithmetic_lib",
@@ -27,13 +27,13 @@ closure_js_test(
     name = "simple_test",
     srcs = ["simple_test.js"],
     pedantic = True,
-    deps = ["//closure/library:testing"],
+    deps = ["//third_party/rules_closure/closure/library:testing"],
 )
 
 closure_js_library(
     name = "arithmetic_module_lib",
     srcs = ["arithmetic_module.js"],
-    deps = ["//closure/library"],
+    deps = ["//third_party/rules_closure/closure/library"],
 )
 
 closure_js_test(
@@ -43,7 +43,7 @@ closure_js_test(
     pedantic = True,
     deps = [
         ":arithmetic_module_lib",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )
 
@@ -53,7 +53,7 @@ closure_js_test(
     pedantic = True,
     deps = [
         ":arithmetic_lib",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )
 
@@ -70,7 +70,7 @@ closure_js_test(
     pedantic = True,
     deps = [
         ":arithmetic_es6module_lib",
-        "//closure/library:testing",
+        "//third_party/rules_closure/closure/library:testing",
     ],
 )
 
@@ -81,8 +81,8 @@ genrule(
         "fontdemo.html",
     ],
     outs = ["fontdemo-generated.png"],
-    cmd = "$(location //third_party/phantomjs) $(SRCS) $@",
-    tools = ["//third_party/phantomjs"],
+    cmd = "$(location //third_party/js/phantomjs) $(SRCS) $@",
+    tools = ["//third_party/js/phantomjs"],
 )
 
 files_equal_test(
